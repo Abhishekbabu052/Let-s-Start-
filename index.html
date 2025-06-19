@@ -1,21 +1,20 @@
-<!-- index.php -->
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Dynamic Page</title>
+  <title>Contact Form</title>
 </head>
 <body>
 
-<?php
-$name = $_GET['name'] ?? 'Guest';
-echo "<h1>Welcome, $name!</h1>";
-?>
+  <form action="https://formsubmit.co/babuabhishek052@gmail.com" method="POST">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_next" value="https://example.com/thank-you">
 
-<form method="get">
-    <label for="name">Enter your name:</label>
-    <input type="text" name="name" id="name" />
-    <button type="submit">Submit</button>
-</form>
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Your Email" required>
+    <textarea name="message" placeholder="Your Message" required></textarea>
+
+    <button type="submit">Send</button>
+  </form>
 
 </body>
 </html>
