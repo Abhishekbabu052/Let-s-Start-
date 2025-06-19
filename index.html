@@ -1,18 +1,22 @@
 <!DOCTYPE html>
 <html>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, 
 <head>
   <title>Contact Form</title>
 </head>
 <body>
 
-  <form action="mailto:babuabhishek052@gmail.com" method="POST" enctype="text/plain">
-  <input type="text" name="name" placeholder="Your Name" required>
-  <input type="email" name="email" placeholder="Your Email" required>
-  <textarea name="message" placeholder="Message" required></textarea>
-  <button type="submit">Send</button>
-</form>
+  <form action="https://formsubmit.co/babuabhishek052@gmail.com" method="POST">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_next" value="https://example.com/thank-you">
+
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Your Email" required>
+    <textarea name="message" placeholder="Your Message" required></textarea>
 
     <button type="submit">Send</button>
+  </form>
 
 </body>
 </html>
