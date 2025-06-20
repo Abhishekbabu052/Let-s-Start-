@@ -153,44 +153,51 @@
     function addToCart(productName) {
       const newWindow = window.open("", "_blank");
       newWindow.document.write(`
-        <html>
-        <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>Order Form</title>
-          <style>
-            body { font-family: Arial; padding: 20px; }
-            table { width: 100%; }
-            td { padding: 8px; }
-          </style>
-        </head>
-        <body>
-          <h2>Order for: ${productName}</h2>
-          <form method="POST" action="https://formsubmit.co/babuabhishek052@gmail.com">
-            <table>
-              <tr>
-                <td>Enter Name</td>
-                <td><input type="text" required></td>
-              </tr>
-              <tr>
-                <td>Enter Phone</td>
-                <td><input type="number" required></td>
-              </tr>
-              <tr>
-                <td>Enter Pincode</td>
-                <td><input type="number" required></td>
-              </tr>
-              <tr>
-                <td>Enter Landmark</td>
-                <td><textarea rows="3" required></textarea></td>
-              </tr>
-              <tr>
-                <td colspan="2"><input type="submit" value="Submit"></td>
-              </tr>
-            </table>
-          </form>
-        </body>
-        </html>
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Form</title>
+  <style>
+  body { font-family: Arial; padding: 20px; }
+  table { width: 100%; }
+  td { padding: 8px; }
+  </style>
+  </head>
+  <body>
+  <h2>Order for: ${productName}</h2>
+  
+  <form method="POST" action="https://formsubmit.co/babuabhishek052@gmail.com">
+  <!-- Prevent spam -->
+  <input type="hidden" name="_captcha" value="false">
+  <input type="hidden" name="_subject" value="New Order Form Submission">
+  
+  <table>
+  <tr>
+  <td>Enter Name</td>
+  <td><input type="text" name="name" required></td>
+  </tr>
+  <tr>
+  <td>Enter Phone</td>
+  <td><input type="number" name="phone" required></td>
+  </tr>
+  <tr>
+  <td>Enter Pincode</td>
+  <td><input type="number" name="pincode" required></td>
+  </tr>
+  <tr>
+  <td>Enter Landmark</td>
+  <td><textarea rows="3" name="landmark" required></textarea></td>
+  </tr>
+  <tr>
+  <td colspan="2"><input type="submit" value="Submit"></td>
+  </tr>
+  </table>
+  </form>
+  </body>
+  </html>
+  
       `);
       newWindow.document.close();
     }
