@@ -1,22 +1,204 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact Form</title>
+<title></title>
+<style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+    }
+
+    header {
+      background-color: #008080;
+      padding: 20px;
+      color: white;
+      text-align: center;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: #006666;
+    }
+
+    nav a {
+      color: white;
+      padding: 14px 20px;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    nav a:hover {
+      background-color: #004d4d;
+    }
+
+    .banner {
+      background: url('https://www.netmeds.com/images/cms/aw_rbslider/slides/1685696729_netmeds_Mega_Sale_web.jpg') no-repeat center;
+      background-size: cover;
+      height: 300px;
+    }
+
+    .search-bar {
+      text-align: center;
+      margin: 20px;
+    }
+
+    .search-bar input {
+      padding: 10px;
+      width: 300px;
+      font-size: 16px;
+    }
+
+    .products {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: 20px;
+    }
+
+    .card {
+      background: white;
+      padding: 15px;
+      margin: 10px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      width: 250px;
+      text-align: center;
+    }
+
+    .card img {
+      max-width: 100%;
+      height: 150px;
+      object-fit: cover;
+    }
+
+    .card button {
+      background-color: #008080;
+      color: white;
+      border: none;
+      padding: 10px;
+      margin-top: 10px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    .card button:hover {
+      background-color: #005f5f;
+    }
+  </style>
 </head>
 <body>
 
-  <form action="https://formsubmit.co/babuabhishek052@gmail.com" method="POST">
-    <input type="hidden" name="_captcha" value="false">
-    <input type="hidden" name="_next" value="https://example.com/thank-you">
+  <header>
+    <h1>MEDIKART</h1>
+    <p>Your Online Pharmacy and Wellness Partner</p>
+  </header>
 
-    <input type="text" name="name" placeholder="Your Name" required>
-    <input type="email" name="email" placeholder="Your Email" required>
-    <textarea name="message" placeholder="Your Message" required></textarea>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Medicines</a>
+    <a href="#">Nearest Centre</a>
+    <a href="#">Consult Doctor</a>
+    <a href="#">Cart</a>
+  </nav>
 
-    <button type="submit">Send</button>
-  </form>
+  <div class="banner"></div>
+
+  <div class="search-bar">
+    <input type="text" id="search" placeholder="Search for products..." onkeyup="filterProducts()">
+  </div>
+
+  <div class="products" id="productList">
+    <div class="card">
+      <img src="https://www.netmeds.com/images/product-v1/600x600/812454/dolo_650mg_tablet_15s_0_0.jpg" alt="Dolo 650">
+      <h3>Dolo 650 Tablet</h3>
+      <p>₹20.00</p>
+      <button onclick="addToCart('Dolo 650 Tablet')">Order</button>
+    </div>
+
+    <div class="card">
+      <img src="https://www.netmeds.com/images/product-v1/600x600/812454/dolo_650mg_tablet_15s_0_0.jpg" alt="Protection">
+      <h3>Protection</h3>
+      <p>₹100.00</p>
+      <button onclick="addToCart('Protection')">Order</button>
+    </div>
+
+    <div class="card">
+      <img src="https://www.netmeds.com/images/product-v1/600x600/823762/zincovit_tablet_15s_0_0.jpg" alt="Zincovit">
+      <h3>Zincovit Tablet</h3>
+      <p>₹55.00</p>
+      <button onclick="addToCart('Zincovit Tablet')">Order</button>
+    </div>
+
+    <div class="card">
+      <img src="https://www.netmeds.com/images/product-v1/600x600/408884/crocin_advance_tablet_20s_0.jpg" alt="Crocin Advance">
+      <h3>Crocin Advance</h3>
+      <p>₹30.00</p>
+      <button onclick="addToCart('Crocin Advance')">Order</button>
+    </div>
+
+    <div class="card">
+      <img src="https://www.netmeds.com/images/product-v1/600x600/812454/dolo_650mg_tablet_15s_0_0.jpg" alt="Avil">
+      <h3>Avil</h3>
+      <p>₹20.00</p>
+      <button onclick="addToCart('Avil')">Order</button>
+    </div>
+  </div>
+
+  <script>
+    function addToCart(productName) {
+      const newWindow = window.open("", "_blank");
+      newWindow.document.write(`
+        <html>
+        <head>
+          <title>Order Form</title>
+          <style>
+            body { font-family: Arial; padding: 20px; }
+            table { width: 100%; }
+            td { padding: 8px; }
+          </style>
+        </head>
+        <body>
+          <h2>Order for: ${productName}</h2>
+          <form>
+            <table>
+              <tr>
+                <td>Enter Name</td>
+                <td><input type="text" required></td>
+              </tr>
+              <tr>
+                <td>Enter Phone</td>
+                <td><input type="number" required></td>
+              </tr>
+              <tr>
+                <td>Enter Pincode</td>
+                <td><input type="number" required></td>
+              </tr>
+              <tr>
+                <td>Enter Landmark</td>
+                <td><textarea rows="3" required></textarea></td>
+              </tr>
+              <tr>
+                <td colspan="2"><input type="submit" value="Submit"></td>
+              </tr>
+            </table>
+          </form>
+        </body>
+        </html>
+      `);
+      newWindow.document.close();
+    }
+
+    function filterProducts() {
+      const input = document.getElementById("search").value.toLowerCase();
+      const cards = document.querySelectorAll(".card");
+      cards.forEach(card => {
+        const productName = card.querySelector("h3").textContent.toLowerCase();
+        card.style.display = productName.includes(input) ? "block" : "none";
+      });
+    }
+  </script>
 
 </body>
 </html>
